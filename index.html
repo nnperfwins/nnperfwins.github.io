@@ -1,104 +1,148 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>nnPerf</title>
-    <link rel="stylesheet" href="css/dan.css"/>
+    <link rel="stylesheet" href="css/dan.css" />
+	<script src="https://cdn.bootcdn.net/ajax/libs/highlight.js/11.2.0/highlight.min.js"></script>
+	<link href="https://cdn.bootcdn.net/ajax/libs/highlight.js/11.8.0/styles/github.css" rel="stylesheet">
+	<script>hljs.initHighlightingOnLoad();</script> 
+    <style>
+        pre code{    
+		  font-family: consolas, Menlo, "PingFang SC", "Microsoft YaHei", monospace;
+        }
+        .custom-paragraphs p {
+            font-size: smaller; /* 缩小字体一号 */
+            color: gray; /* 设置字体颜色为灰色 */
+        }
+    </style>
+    
 </head>
+
 <body width=600>
 
-<center>
-	<H1>nnPerf: Demystifying DNN Runtime Inference Latency on Mobile Platforms</H1>
-	<H4><a href="#overview">Overview</a> | <a href="#external">Users</a> | <a href="#credits">Credits</a><br>
-		<a href="">GitHub</a> | <a href="">Installation Instructions</a> | <a href="">FAQ</a> | <a href="">Get Help</a>
-	</H4>
-</center>
+    <center>
+        <H1>nnPerf: A Real-time On-device Tool Profiling DNN Inference on Mobile Platforms</H1>
+        <H4><a href="#overview">Overview</a> | <a href="#key_features">Key Features</a> |
+            <a href="#installation_instructions">Installation instructions</a> | 
+            <a href="#publications">Publications</a> | <a href="#credits">Credits</a><br>
+            <a href="">GitHub</a> | <a href="">FAQ</a> | <a href="">Get Help</a>
+        </H4>
+    </center>
 
-<!--- ********************************************************************* -->
 
-<H2>Overview</H2>
-<!--<div class="figcontain" style="float:right;">-->
-<!--<img width="500" src="img/The_effectiveness_of_nnPerf.png" alt="The effectiveness of nnPerf"><div class="figcaption">The effectiveness of nnPerf</div>-->
-<!--</div>-->
-</td>
-<p>This webpage contains instructions to use our nnPerf.This is a real-time on-device profiler designed to collect and analyze the DNN model run-time inference latency on mobile platforms. nnPerf demystifies the hidden layers and metrics used for pursuing DNN optimizations and adaptations at the granularity of operators and kernels, ensuring every facet contributing to a DNN model’s runtime efficiency is easily accessible to mobile developers via well-defined APIs.</p>
+    <!--- ********************************************************************* -->
 
-<p>With nnPerf, the mobile developers can easily identify the bottleneck in model run-time efficiency and optimize the model architecture to meet system-level objectives (SLO).</p>
+    <H2 id="overview">Overview</H2>
+    <!--<div class="figcontain" style="float:right;">-->
+    <!--<img width="500" src="img/The_effectiveness_of_nnPerf.png" alt="The effectiveness of nnPerf"><div class="figcaption">The effectiveness of nnPerf</div>-->
+    <!--</div>-->
+    </td>
+    <p>     This webpage contains instructions to use our nnPerf.This is a real-time on-device profiler designed to collect
+        and analyze the DNN model run-time inference latency on mobile platforms. nnPerf demystifies the hidden layers
+        and metrics used for pursuing DNN optimizations and adaptations at the granularity of operators and kernels,
+        ensuring every facet contributing to a DNN model’s runtime efficiency is easily accessible to mobile developers
+        via well-defined APIs.</p>
 
-<p>The figure below compares nnPerf to existing DNN model analyzers designed for mobile platforms.</p>
-<div class="figcontain">
-    <img width="550" src="img/The_effectiveness_of_nnPerf.png" alt="The effectiveness of nnPerf">
-    <div class="figcaption">The effectiveness of nnPerf</div>
-</div>
-	
-<H2>Installation instructions</H2>
-<p>Set up Android Studio in just a few steps. You can download <a href=""> the latest version of nnPerf here.</a></p>
+    <p>With nnPerf, the mobile developers can easily identify the bottleneck in model run-time efficiency and optimize
+        the model architecture to meet system-level objectives (SLO).</p>
 
-<H3>Quick start with apk</H3>
-<p>1. Use adb to connect to smartphones or mobile platforms (Android basic system).</p>
-<p>2. Install the nnPerf_v1.1.apk.</p>
-<code>adb install -t '.\nnPerfAPKinstaller\nnPerf_v1.1.apk'</code>
+    <p>The figure below compares nnPerf to existing DNN model analyzers designed for mobile platforms.</p>
+    <div class="figcontain">
+        <img width="550" src="img/The_effectiveness_of_nnPerf.jpg" alt="The effectiveness of nnPerf">
+        <div class="figcaption">The effectiveness of nnPerf</div>
+    </div>
+    <p>To cite this tool, the best reference is the <a href="nnPerf.pdf">SenSys 2023 paper</a> (<a href="">BibTeX</a>).</p>
+    <br>
+    <!--- ********************************************************************* -->
 
-<H3>Build android project</H3>
-<p>1. Install Android Studio 3.6.3 (Runtime version: 1.8.0_212-release-1586-b04 amd64).</p>
-<p>2. Import Project.</p>
-<code>File -> Open -> Current file directory</code>
-<p>3. Android Studio Setting.</p>
-<code>Android Gradle Plugin Version: 3.1.3</code>	
-<code>Gradle Version:                4.4</code>	
-<code>NDK Version:                   21.0.6113669</code>	
-<code>DK Verison:                   1.8.0_211</code>	
-<p>4. Run to profile.</p>
-<code>Update Output path: /storage/emulated/0/</code>	
-<p>5. Model support list. (Support for adding other .tflite models)</p>
-	
-<H2>Online timeline visualization tool</H2>
-<p>This is our <a href="http://8.218.49.80:8080/charts/">online timeline visualization tool</a> designed for nnPerf.</p>
-<div class="figcontain">
-<img width="750" src="img/csi.png" alt="Channel state information for four 1x1 links">
-<div class="figcaption">Example nnPerf</div>
-</div>
+    <H2 id="key_features">Key Features</H2>
+    <p>----</p>
+    
+    <p>For more design details and features, please refer to <a href="nnPerf.pdf">our Sensys 2023 paper</a>.</p>
+    <br>
+    <!--- ********************************************************************* -->
 
-<!--- ********************************************************************* -->
+    <H2 id="installation_instructions">Installation instructions</H2>
+    <p>Set up Android Studio in just a few steps. You can download <a href=""> the latest version of nnPerf here.</a>
+    </p>
 
-<!--- ********************************************************************* -->
+    <H3>Quick start with apk</H3>
+    <p>1. Use adb to connect to smartphones or mobile platforms (Android basic system).</p>
+    <p>2. Install the nnPerf_v1.1.apk.</p>
+    <pre><code>adb install -t '.\nnPerfAPKinstaller\nnPerf_v1.1.apk'</code></pre>
+    <H3>Build android project</H3>
+    <p>1. Install Android Studio 3.6.3 (Runtime version: 1.8.0_212-release-1586-b04 amd64).</p>
+    <p>2. Import Project.</p>
+    <pre><code>File -> Open -> Current file directory</code></pre>
+    <p>3. Android Studio Setting.</p>
+    <pre><code>Android Gradle Plugin Version:  3.1.3</code>
+<code>Gradle Version:                 4.4</code>
+<code>NDK Version:                    21.0.6113669</code>
+<code>DK Verison:                     1.8.0_211</code></pre>
+    <p>4. Run to profile.</p>
+    <pre><code>Update Output path: /storage/emulated/0/</code></pre>
+    <p>5. Model support list. (Support for adding other .tflite models)</p>
+    <br>
+    <!--- ********************************************************************* -->
 
-<H2 id="external">Users</H2>
-<p>More than our own work, we are excited about <em>others</em> using our platform to advance the state of the art. We used to maintain a list of 1000+ published papers using our tools and data, but at this point <a href="https://scholar.google.com/scholar?cites=4354757827101869878">Google Scholar</a> does a fine job for us, despite the dozens of authors that did not bother citing our tools.</p>
+    <H2>Online timeline visualization tool</H2>
+    <p>This is our <a href="http://8.218.49.80:8080/charts/">online timeline visualization tool</a> designed for nnPerf.
+    </p>
+    <div class="figcontain">
+        <img width="750" src="img/tool1.jpg" alt="Channel state information for four 1x1 links">
+        <div class="figcaption">Example of visualization tool</div>
+    </div>
+    <div class="custom-paragraphs">
+        <p>Features of our visualization tools:</p>
+        <p>1. You can upload test data files for visualization and adjust the size of the interface through the scroll
+            wheel.</p>
+        <p>2. You can sort the data in the file according to three categories through the "Sort" button.</p>
+        <p>3. You can query the files you have uploaded through History.</p>
+        <P>4. This type of data can be selectively hidden by clicking on the three legends in the upper right corner.</P>
+    </div>
+    <br>
+    <!--- ********************************************************************* -->
 
-<!--- ********************************************************************* -->
+    <H2 id="publications">Publications</H2>
+    <p>-------</p>
+    <br>
+    <!--- ********************************************************************* -->
 
-<H2 id="credits">Credits</H2>
-<center>
-<H4>Authors: <a href="">Haolin Chu</a> | <a href="">Xiaolong Zheng</a> | <a href="">Liang Liu</a> | <a href="">Huadong Ma</a><br>
-Maintainers: <a href="">Haolin Chu</a> </H4>
-<p>To cite this tool, the best reference is the <a href="">SenSys 2023 paper</a> (<a href="">BibTeX</a>).</p>
-</center>
+    <H2 id="credits">Credits</H2>
+    <center>
+        <H4>Authors: <a href="">Haolin Chu</a> | <a href="">Xiaolong Zheng</a> | <a href="">Liang Liu</a> | <a
+                href="">Huadong Ma</a><br>
+            Maintainers: <a href="">Haolin Chu</a> </H4>
+        
+    </center>
 
-<!--- ********************************************************************* -->
+    <!--- ********************************************************************* -->
     <script type="text/javascript">
         var gaJsHost = (("https:" == document.location.protocol) ?
-        "https://ssl." : "http://www.");
+            "https://ssl." : "http://www.");
         document.write(unescape("%3Cscript src='" + gaJsHost +
-        "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+            "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
     </script>
     <script type="text/javascript">
         var pageTracker = _gat._getTracker("UA-3907502-1");
         pageTracker._initData();
         pageTracker._trackPageview();
     </script>
-<!-- Default Statcounter code for nnprofiling https://nnprofiling.github.io/ -->
-<script type="text/javascript">
-    var sc_project=12929284;
-    var sc_invisible=1;
-    var sc_security="3e5620fa";
-</script>
-<script type="text/javascript"
-        src="https://www.statcounter.com/counter/counter.js" async></script>
-<noscript><div class="statcounter"><a title="Web Analytics"
-                                      href="https://statcounter.com/" target="_blank"><img class="statcounter"
-                                                                                           src="https://c.statcounter.com/12929284/0/3e5620fa/1/" alt="Web Analytics"
-                                                                                           referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
-<!-- End of Statcounter Code -->
+    <!-- Default Statcounter code for nnprofiling https://nnprofiling.github.io/ -->
+    <script type="text/javascript">
+        var sc_project = 12929284;
+        var sc_invisible = 1;
+        var sc_security = "3e5620fa";
+    </script>
+    <script type="text/javascript" src="https://www.statcounter.com/counter/counter.js" async></script>
+    <noscript>
+        <div class="statcounter"><a title="Web Analytics" href="https://statcounter.com/" target="_blank"><img
+                    class="statcounter" src="https://c.statcounter.com/12929284/0/3e5620fa/1/" alt="Web Analytics"
+                    referrerPolicy="no-referrer-when-downgrade"></a></div>
+    </noscript>
+    <!-- End of Statcounter Code -->
 </body>
+
 </html>
