@@ -69,3 +69,68 @@ pre {
 li {
 	margin-bottom:3px;
 }
+
+pre code{    
+	font-family: consolas, Menlo, "PingFang SC", "Microsoft YaHei", monospace;
+  }
+
+.dotted-underline {
+    border-bottom: 2px dotted #000; /* 1px宽的黑色虚线下划线 */
+}
+
+.custom-paragraphs {
+	color: gray; /* 设置文本颜色为灰色 */
+	font-size: 14px; /* 设置字号为14像素 */
+}
+.custom-paragraphs p {
+	margin-bottom: 5px; /* 添加段落之间的底部间距 */
+}
+
+.content{
+	margin: 10px auto;
+}
+
+.content pre{
+	background: #f7f7f7;
+	color: rgb(18, 30, 48);
+	font-family: "Consolas";
+	text-align: left;
+	padding: 1em;
+	padding-left: 25px;
+	/* margin: 1em; */
+	border-radius: 5px;
+	counter-reset: line;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+	word-wrap: normal;
+	line-height: 1.4;
+	font-size: 15px;
+	border: none; /* 去掉边框 */
+}
+
+.content {
+    position: relative;
+    border: 1px solid #ccc; /* 为了更好地显示代码块边框 */
+    padding: 0px; /* 代码块容器的内边距 */
+	border: none; /*去掉边框 */
+}
+
+/* 复制按钮样式 */
+.btn-pre-copy {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: #e2e1e1;
+    color: #000;
+    padding: 2px 4px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+/* 按钮悬停时的样式 */
+.btn-pre-copy:hover {
+	font-family: "Consolas";
+    background-color: #888;
+    color: #fff;
+}
