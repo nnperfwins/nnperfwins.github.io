@@ -98,7 +98,12 @@
         <source src="video/nnperf-video.mp4"
                 type="video/mp4">
     </video>
-    
+    <p><b>1. Plug-and-play design principles</b></p>
+    <p class="feature">&#8226; Simplified DNN model latency analysis on mobile platforms, allowing developers to easily identify bottlenecks and optimize model efficiency.</p>
+    <p><b>2. Real-time on-device</b></p>
+    <p class="feature">&#8226; Provides real-time on-device analytics to ensure accurate latency feedback for inference DNN models on mobile devices.</p>
+    <p><b>3. Support GPU Kernel-level fine-grained profiling</b></p>
+    <p class="feature">&#8226; The ability to perform in-depth analysis of GPU kernels provides developers with granular insights into the optimization of DNN models.</p>
     <p>For more design details and features, please refer to <a href="">our Sensys 2023 paper</a>.</p>
     <br>
     
@@ -128,23 +133,15 @@ Build Tools Version:             27.0.3
     <div class="content"><pre>Update Output path: /storage/emulated/0/</pre></div>
     <p>5. Note: In the case of GPU reasoning, do not directly switch models.</p>
     <p>6. Model support list (Support for adding other .tflite models)</p>
-    <div class="content"><pre>	mobilenetV3-Large-Float
-
-        mobilenetV3-Small-Float
-    
-        mobilenetV2-Float
-    
-        mobilenetV1-Float
-    
-        Squeezenet-Float
-    
-        EfficientNet-b0-Float
-    
-        MNasNet-1.0
-    
-        Densenet-Float
-    
-        mobilenetV1-Quant
+    <div class="content"><pre>mobilenetV3-Large-Float
+mobilenetV3-Small-Float
+EfficientNet-b0-Float
+mobilenetV1-Quant
+mobilenetV2-Float
+mobilenetV1-Float
+Squeezenet-Float
+Densenet-Float
+MNasNet-1.0
 </pre></div>
     <br>
     
@@ -159,11 +156,10 @@ Build Tools Version:             27.0.3
     </div>
     <div class="custom-paragraphs">
         <p>Features of our visualization tools:</p>
-        <p>1. You can upload test data files for visualization and adjust the size of the interface through the scroll
-            wheel.</p>
-        <p>2. You can sort the data in the file according to three categories through the "Sort" button.</p>
-        <p>3. You can query the files you have uploaded through History.</p>
-        <P>4. This type of data can be selectively hidden by clicking on the three legends in the upper right corner.</P>
+        <p>1. Easily upload test data files and resize the interface using the scroll wheel.</p>
+        <p>2. Utilize the "Sort" button to organize data within the file based on three distinctcategories.</p>
+        <p>3. Retrieve and query previously uploaded files conveniently through the History feature.</p>
+        <P>4. Selectively hide specific filters through the intuitive legend in the upper right corner of the interface.</P>
     </div>
     <br>
 
