@@ -21,10 +21,16 @@ body {
 	width: 780px;
 	margin-left: auto;
 	margin-right: auto;
+	box-shadow: 5px 2px 2px grey, inset 0px 0px 10px #ccc;
+	border-bottom: 2px solid black;
+    padding-left: 65px !important;
+    padding-right: 65px !important;
 }
-
 h1 {
 	font: 28px Helvetica, sans-serif;
+	border-bottom: 1px;
+	border-bottom-color: #000000;
+	border-bottom-style: solid;
 }
 
 h2 {
@@ -137,4 +143,4 @@ pre code{
 
 .feature {
     margin-left: 2ch;
-  }
+}

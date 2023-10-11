@@ -1,13 +1,25 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
 <html lang="en">
-
+    <style>
+        body {
+          width: 780px;
+          margin-left: auto;
+          margin-right: auto;
+          box-shadow: 5px 2px 2px grey, inset 0px 0px 10px #ccc;
+          border-bottom: 2px solid black;
+          padding-left: 65px !important;
+          padding-right: 65px !important;
+        }
+      </style>
 <head>
     <meta charset="UTF-8">
     <title>nnPerf</title>
     <link rel="stylesheet" href="css/dan.css" />
 	<script src="https://cdn.bootcdn.net/ajax/libs/highlight.js/11.2.0/highlight.min.js"></script>
     <script src="js/jquery-3.6.0.min.js"></script>
-	<script>hljs.initHighlightingOnLoad();</script> 
+	<script>
+        hljs.initHighlightingOnLoad();
+    </script> 
     <script>
         $(function(){
             //给每一串代码元素增加复制代码节点
@@ -57,6 +69,7 @@
 <body width=650>
 
     <center>
+        <h1></h1>
         <H1>nnPerf: A Real-time On-device Tool Profiling DNN Inference on Mobile Platforms</H1>
         <H4><a href="#overview">Overview</a> |
             <a href="#key_features">Key Features</a> |
@@ -72,40 +85,52 @@
 <!--- ******************************************************************************************************* -->
 
     <H2 id="overview">Overview</H2>
-    </td>
-    <p> This webpage contains instructions to use our nnPerf.This is a real-time on-device profiler designed to collect
+    <p> 
+        This webpage contains instructions to use our nnPerf.This is a real-time on-device profiler designed to collect
         and analyze the DNN model run-time inference latency on mobile platforms. nnPerf demystifies the hidden layers
         and metrics used for pursuing DNN optimizations and adaptations at the granularity of operators and kernels,
         ensuring every facet contributing to a DNN model’s runtime efficiency is easily accessible to mobile developers
-        via well-defined APIs.</p>
+        via well-defined APIs.
+    </p>
 
-    <p>With nnPerf, the mobile developers can easily identify the bottleneck in model run-time efficiency and optimize
-        the model architecture to meet system-level objectives (SLO).</p>
+    <p>
+        With nnPerf, the mobile developers can easily identify the bottleneck in model run-time efficiency and optimize
+        the model architecture to meet system-level objectives (SLO).
+    </p>
 
-    <p>The figure below compares nnPerf to existing DNN model analyzers designed for mobile platforms.</p>
+    <p>
+        The figure below compares nnPerf to existing DNN model analyzers designed for mobile platforms.
+    </p>
     <div class="figcontain">
         <img width="600" src="img/The_effectiveness_of_nnPerf.jpg" alt="The effectiveness of nnPerf">
         <div class="figcaption">The effectiveness of nnPerf</div>
     </div>
     <p>To cite this tool, the best reference is the <a href="#citation">SenSys 2023 paper</a> (<a href="">BibTeX</a>).</p>
-    <br>
 
 <!--- ***************************************************************************************************************** -->
 
     <H2 id="key_features">Key Features</H2>
     <!-- <p>----</p> -->
-    <video poster="" id="steve" autoplay controls muted loop height="100%" width="780">
+    <video
+    poster=""
+    id="steve"
+    autoplay
+    controls
+    muted
+    loop
+    height="100%"
+    width="780"
+    >
         <source src="video/nnperf-video.mp4"
                 type="video/mp4">
     </video>
     <p><b>1. Plug-and-play design principles</b></p>
-    <p class="feature">&#8226; Simplified DNN model latency analysis on mobile platforms, allowing developers to easily identify bottlenecks and optimize model efficiency.</p>
+    <p class="feature">&#8226; Follows a self-contained approach with no need for extra libraries or complex installations.</p>
     <p><b>2. Real-time on-device profiling</b></p>
-    <p class="feature">&#8226; Provides real-time on-device analytics to ensure accurate latency feedback for inference DNN models on mobile devices.</p>
+    <p class="feature">&#8226; Monitor DNN inference delays directly on the device without external dependencies like adb.</p>
     <p><b>3. Support measuring fine-grained information at the GPU kernel level</b></p>
-    <p class="feature">&#8226; The ability to perform in-depth analysis of GPU kernels provides developers with granular insights into the optimization of DNN models.</p>
+    <p class="feature">&#8226; Allows deep inspection of GPU kernels for detailed insights into DNN model optimization.</p>
     <p>For more design details and features, please refer to <a href="">our Sensys 2023 paper</a>.</p>
-    <br>
     
 <!--- ****************************************************************************************************************** -->
 
@@ -143,7 +168,6 @@ Squeezenet-Float
 Densenet-Float
 MNasNet-1.0
 </pre></div>
-    <br>
     
 <!--- **************************************************************************************************************** -->
 
@@ -161,7 +185,6 @@ MNasNet-1.0
         <p>3. Retrieve and query previously uploaded files conveniently through the History feature.</p>
         <P>4. Selectively hide specific filters through the intuitive legend in the upper right corner of the interface.</P>
     </div>
-    <br>
 
 <!--- ***************************************************************************************************************** -->
 
@@ -174,7 +197,6 @@ MNasNet-1.0
     pages={TBD},
     year={2023}
 }</pre></div>
-    <br>
 
     <!--- ********************************************************************* -->
 
@@ -183,7 +205,6 @@ MNasNet-1.0
         <H4>Authors: <a href="">Haolin Chu</a> | <a href="">Xiaolong Zheng</a> | <a href="">Liang Liu</a> | <a
                 href="">Huadong Ma</a><br>
             Maintainers: <a href="">Haolin Chu</a> </H4>
-        
     </center>
 
     <!--- ********************************************************************* -->
