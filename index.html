@@ -66,14 +66,14 @@
     </script>
 </head>
 
-<body width=650>
+<body>
     <div id="dg">
         <a href="http://8.218.49.80:8080/charts/">yes</a>
       </div>
     <center>
         <h1></h1>
-        <H1>nnPerf: A Real-time On-device Tool Profiling DNN Inference on Mobile Platforms</H1>
-        <H4><a href="#overview">Overview</a> |
+        <h1>nnPerf: A Real-time On-device Tool Profiling DNN Inference on Mobile Platforms</h1>
+        <h4><a href="#overview">Overview</a> |
             <a href="#key_features">Key Features</a> |
             <a href="#installation_instructions">Installation instructions</a> |
             <a href="#online_tool">Visualization tool</a><br> 
@@ -82,7 +82,7 @@
             <a href="#get_help">Get Help</a> |
             <a href="#credits">Credits</a> |
             <a href="https://github.com/nnperfwins/nnPerf">GitHub</a> | <a href="">FAQ</a>
-        </H4>
+        </h4>
     </center>
 
 
@@ -91,7 +91,7 @@
     Our paper "nnPerf" won the <strong> Best Paper Award Runner-up </strong> of <strong> ACM SenSys 2023 </strong>!
 </center>
 
-    <H2 id="overview">Overview</H2>
+    <h2 id="overview">Overview</h2>
     <p> 
         This webpage contains instructions to use our nnPerf. nnPerf is a real-time on-device profiler designed to collect
         and analyze the DNN model runtime inference latency on mobile platforms. nnPerf demystifies the hidden layers
@@ -116,7 +116,7 @@
 
 <!--- ***************************************************************************************************************** -->
 
-    <H2 id="key_features">Key Features</H2>
+    <h2 id="key_features">Key Features</h2>
     <!-- <p>----</p> -->
     <video
     poster=""
@@ -141,15 +141,15 @@
     
 <!--- ****************************************************************************************************************** -->
 
-    <H2 id="installation_instructions">Installation instructions</H2>
+    <h2 id="installation_instructions">Installation instructions</h2>
     <p>Set up nnPerf in just a few steps. You can download <a href="https://github.com/nnperfwins/nnPerf"> the latest version of nnPerf here.</a>
     </p>
 
-    <H3><span class="dotted-underline">Quick start with apk</span></H3>
+    <h3><span class="dotted-underline">Quick start with apk</span></h3>
     <p>1. Use adb to connect to smartphones or mobile platforms (Android basic system)</p>
     <p>2. Install the nnPerf_v1.0.apk</p>
     <div class="content"><pre>adb install -t '.\nnPerfAPKinstaller\nnPerf_v1.0.apk'</pre></div>
-    <H3><span class="dotted-underline">Build android project</span></H3>
+    <h3><span class="dotted-underline">Build android project</span></h3>
     <p>1. Install Android Studio 3.6.3 (Runtime version: 1.8.0_212-release-1586-b04 amd64).</p>
     <p>2. Import Project</p>
     <div class="content"><pre>File -> Open -> Current file directory</pre></div>
@@ -180,7 +180,7 @@ Esrgan
     
 <!--- **************************************************************************************************************** -->
 
-    <H2 id="online_tool">Online timeline visualization tool</H2>
+    <h2 id="online_tool">Online timeline visualization tool</h2>
     <p>We are developing an online timeline visualization tool for nnPerf, we will release it later.
     </p>
     <div class="figcontain">
@@ -192,12 +192,12 @@ Esrgan
         <p>1. Easily upload test data files and resize the interface using the scroll wheel.</p>
         <p>2. Utilize the "Sort" button to organize data within the file based on three distinctcategories.</p>
         <p>3. Retrieve and query previously uploaded files conveniently through the History feature.</p>
-        <P>4. Selectively hide specific filters through the intuitive legend in the upper right corner of the interface.</P>
+        <p>4. Selectively hide specific filters through the intuitive legend in the upper right corner of the interface.</p>
     </div>
 
 <!--- **************************************************************************************************************** -->
 
-<H2 id="support_for_llm">Support for LLM</H2>
+<h2 id="support_for_llm">Support for LLM</h2>
 <p>We also support profiling LLM, such as GPT, BERT.
 </p>
 <div class="figcontain">
@@ -208,10 +208,37 @@ Esrgan
     <img width="750" src="img/mobilebert.png" alt="Channel state information for four 1x1 links">
     <div class="figcaption">Example of MobileBERT</div>
 </div>
+<h3><span class="dotted-underline">Profile analysis on LLM</span></h3>
+<p>We also conducted performance analysis on large LLM models. The real-time top 10 operation delay inferred by GPT2 on a Samsung Note10 mobile phone is displayed.
+</p>
+<div style="position: relative; width: 780px; height: 480px;">
+    <video
+    poster=""
+    id="profile-GPT2"
+    autoplay
+    controls
+    muted
+    loop
+    height="100%"
+    width="780"
+    style="position: absolute; left: 0; top: 0;"
+    >
+        <source src="video/profile-GPT2.mp4"
+                type="video/mp4">
+    </video>
+    <div style="position: absolute; left: 0; top: 50px; text-align: left;">
+        <span>
+          latency (ns)
+        </span>
+      </div>
+      <div style="position: absolute; right: 0; bottom: 0; width: 840px; text-align: right;">
+        <span>Inference Time (s)</span>
+      </div>
+    </div>
 
 <!--- ***************************************************************************************************************** -->
 
-    <H2 id="citation">Citation</H2>
+    <h2 id="citation">Citation</h2>
     <p>If you find nnPerf useful in your research, please consider citing:</p>
     <div class="content"><pre>@inproceedings{chu2023nnperf,
     title={nnPerf: Demystifying DNN Runtime Inference Latency on Mobile Platforms},
@@ -223,17 +250,17 @@ Esrgan
 
 <!--- ***************************************************************************************************************** -->
 
-    <H2 id="get_help">Get Help</H2>
+    <h2 id="get_help">Get Help</h2>
     <p>If you have any functional requirements or usage feedback for nnPerf, please send it to this email address: buptwins#163.com (replace # with @).</p>
    <a href="https://mp.weixin.qq.com/s/36gLshuyFNCYjSDQL00jJw">让您拥有移动端侧神经网络推理的“智子”视角@SenSys’23</a>
 
 <!--- ***************************************************************************************************************** -->
 
-    <H2 id="credits">Credits</H2>
+    <h2 id="credits">Credits</h2>
     <center>
-        <H4>Authors: <a href="">Haolin Chu</a> | <a href="https://xiaolongbupt.github.io/">Xiaolong Zheng</a> | <a href="">Liang Liu</a> | <a
+        <h4>Authors: <a href="">Haolin Chu</a> | <a href="https://xiaolongbupt.github.io/">Xiaolong Zheng</a> | <a href="">Liang Liu</a> | <a
                 href="">Huadong Ma</a><br>
-            Maintainers: <a href="">Haolin Chu</a> </H4>
+            Maintainers: <a href="">Haolin Chu</a> </h4>
         <tr><td colspan="4" align="center" valign="top">
             <a href="https://clustrmaps.com/site/1bx4g"  title="Visit tracker"><img src="//www.clustrmaps.com/map_v2.png?d=kw2vNXowjuenY8AiOw_K4KhnjThMUb2IegDOwVfoe7Y&cl=ffffff" /></a>
         </td></tr>
@@ -262,7 +289,7 @@ Esrgan
     <noscript>
         <div class="statcounter"><a title="Web Analytics" href="https://statcounter.com/" target="_blank"><img
                     class="statcounter" src="https://c.statcounter.com/12929284/0/3e5620fa/1/" alt="Web Analytics"
-                    referrerPolicy="no-referrer-when-downgrade"></a></div>
+                    referrerpolicy="no-referrer-when-downgrade"></a></div>
     </noscript>
     <!-- End of Statcounter Code -->
 </body>

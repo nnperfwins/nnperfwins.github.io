@@ -153,8 +153,8 @@ pre code{
 	display: inline-block;
   }
 
-  #dg a {
-	color: transparent; /* 将链接文本颜色设置为透明 */
-	text-decoration: none; /* 禁用链接的默认下划线 */
-	cursor: default; /* 将鼠标光标设置为默认 */
-  }
+#dg a {
+color: transparent; /* 将链接文本颜色设置为透明 */
+text-decoration: none; /* 禁用链接的默认下划线 */
+cursor: default; /* 将鼠标光标设置为默认 */
+}
