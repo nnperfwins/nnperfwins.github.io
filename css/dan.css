@@ -111,8 +111,9 @@ pre code{
 	word-break: normal;
 	word-wrap: normal;
 	line-height: 1.4;
-	font-size: 15px;
+	font-size: 14px;
 	border: none; /* 去掉边框 */
+	overflow-x: auto; /* 添加横向滚动条 */
 }
 
 .content {
@@ -157,4 +158,40 @@ pre code{
 color: transparent; /* 将链接文本颜色设置为透明 */
 text-decoration: none; /* 禁用链接的默认下划线 */
 cursor: default; /* 将鼠标光标设置为默认 */
+}
+#code_block {
+    background: #f4f6fa;
+    color: rgb(25, 24, 60);
+    font-family: Consolas;
+    text-align: left;
+    padding: 0em;
+    padding-left: 0em;
+	padding-top: 2%;
+	padding-bottom: 2%;
+    margin: 0em;
+    border-radius: 5px;
+    counter-reset: line;
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    word-wrap: normal;
+    line-height: 1.5;
+}
+/* #code_block::first-line {
+    color: rgb(201, 43, 43);
+}
+
+#code_block::before {
+    color: rgb(158, 45, 45);
+} */
+#code_block::before {
+    color: rgb(201, 43, 43);
+}
+
+#code_block .keyword {
+    color: rgb(201, 43, 43);
+}
+
+#code_block .title {
+    color: rgb(165, 21, 165);
 }
