@@ -10,6 +10,74 @@
           padding-left: 65px !important;
           padding-right: 65px !important;
         }
+        
+        /* ARM GPU Performance Counters Styles */
+        .accordion {
+            background-color: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+        
+        .accordion-header {
+            background-color: #e9ecef;
+            padding: 12px 15px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 14px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-radius: 5px 5px 0 0;
+        }
+        
+        .accordion-header:hover {
+            background-color: #dee2e6;
+        }
+        
+        .accordion-header::after {
+            content: '+';
+            font-size: 20px;
+            font-weight: bold;
+        }
+        
+        .accordion-header.active::after {
+            content: '-';
+        }
+        
+        .accordion-content {
+            display: none;
+            padding: 15px;
+            background-color: #fff;
+            border-top: 1px solid #dee2e6;
+        }
+        
+        .accordion-content.show {
+            display: block;
+        }
+        
+        .metric-item {
+            display: flex;
+            margin-bottom: 12px;
+            padding: 8px;
+            background-color: #f8f9fa;
+            border-radius: 4px;
+        }
+        
+        .metric-name {
+            flex: 0 0 45%;
+            font-weight: 600;
+            font-size: 13px;
+            color: #495057;
+            word-break: break-word;
+        }
+        
+        .metric-desc {
+            flex: 0 0 55%;
+            font-size: 13px;
+            color: #6c757d;
+            word-break: break-word;
+        }
       </style>
 <head>
     <meta charset="UTF-8">
@@ -63,6 +131,14 @@
         function selectAll(obj){
             $(obj).select();
         }
+        
+        // Accordion functionality
+        $(document).ready(function() {
+            $('.accordion-header').click(function() {
+                $(this).toggleClass('active');
+                $(this).next('.accordion-content').toggleClass('show');
+            });
+        });
     </script>
 </head>
 
@@ -76,12 +152,13 @@
         <h4><a href="#overview">Overview</a> |
             <a href="#key_features">Key Features</a> |
             <a href="#installation_instructions">Installation instructions</a> |
-            <a href="#online_tool">Visualization tool</a><br> 
+            <a href="#online_tool">Visualization tool</a><br>
             <a href="#support_for_llm">Support for LLM</a> |
+            <a href="#arm_gpu_counters">ARM GPU Counters</a> |
             <a href="#citation">Citation</a> |
             <a href="#get_help">Get Help</a> |
             <a href="#credits">Credits</a> |
-            <a href="https://github.com/nnperfwins/nnPerf">GitHub</a> | 
+            <a href="https://github.com/nnperfwins/nnPerf">GitHub</a> |
             <a href="nnPerf.pdf" target="_blank">PaperPDF</a> |
             <a href="">FAQ</a>
         </h4>
@@ -244,6 +321,246 @@ Esrgan
 <div class="figcontain">
     <img width="750" src="img/token-level.png" alt="Token-level GPU stall ratios">
     <div class="figcaption">Token-level GPU stall ratios</div>
+</div>
+
+<!--- ***************************************************************************************************************** -->
+
+<h2 id="arm_gpu_counters">ARM GPU Performance Counters</h2>
+
+<!-- EVENT_GROUP_UCHE -->
+<div class="accordion">
+    <div class="accordion-header">EVENT_GROUP_UCHE - Unified L2 Cache Event Group</div>
+    <div class="accordion-content">
+        <div class="metric-item">
+            <div class="metric-name">UCHE_VBIF_READ_BEATS_SP</div>
+            <div class="metric-desc">Number of 128-bit data beats read from VBIF/External Memory to UCHE for SP</div>
+        </div>
+        <div class="metric-item">
+            <div class="metric-name">UCHE_READ_REQUESTS_SP</div>
+            <div class="metric-desc">Total read requests issued from Shader Processor (SP) to UCHE</div>
+        </div>
+        <div class="metric-item">
+            <div class="metric-name">UCHE_WRITE_REQUESTS_SP</div>
+            <div class="metric-desc">Total write requests issued from Shader Processor (SP) to UCHE</div>
+        </div>
+        <div class="metric-item">
+            <div class="metric-name">UCHE_VBIF_READ_BEATS_TP</div>
+            <div class="metric-desc">Number of 128-bit data beats read from VBIF/External Memory to UCHE for TP</div>
+        </div>
+        <div class="metric-item">
+            <div class="metric-name">UCHE_READ_REQUESTS_TP</div>
+            <div class="metric-desc">Total read requests issued from Texture Pipe (TP) to UCHE</div>
+        </div>
+    </div>
+</div>
+
+<!-- EVENT_GROUP_SP -->
+<div class="accordion">
+    <div class="accordion-header">EVENT_GROUP_SP - Shader Processor Event Group</div>
+    <div class="accordion-content">
+        <div class="metric-item">
+            <div class="metric-name">SP_BUSY_CYCLES</div>
+            <div class="metric-desc">Number of cycles where the Shader Processor is actively executing instructions</div>
+        </div>
+        <div class="metric-item">
+            <div class="metric-name">SP_NON_EXECUTION_CYCLES</div>
+            <div class="metric-desc">Cycles where SP is active but not executing instructions</div>
+        </div>
+        <div class="metric-item">
+            <div class="metric-name">SP_FS_STAGE_FULL_ALU_INSTRUCTIONS</div>
+            <div class="metric-desc">Number of full-precision ALU instructions executed in Fragment Shader stage</div>
+        </div>
+        <div class="metric-item">
+            <div class="metric-name">SP_VS_STAGE_FULL_ALU_INSTRUCTIONS</div>
+            <div class="metric-desc">Number of full-precision ALU instructions executed in Vertex Shader stage</div>
+        </div>
+        <div class="metric-item">
+            <div class="metric-name">SP_CS_INSTRUCTIONS</div>
+            <div class="metric-desc">Total number of Compute Shader instructions executed</div>
+        </div>
+        <div class="metric-item">
+            <div class="metric-name">SP_ICL1_MISSES</div>
+            <div class="metric-desc">Level 1 Instruction Cache misses in the Shader Processor</div>
+        </div>
+        <div class="metric-item">
+            <div class="metric-name">SP_ICL1_REQUESTS</div>
+            <div class="metric-desc">Total Level 1 Instruction Cache fetch requests</div>
+        </div>
+        <div class="metric-item">
+            <div class="metric-name">SP_LM_LOAD_INSTRUCTIONS</div>
+            <div class="metric-desc">Number of Load instructions from Local Memory</div>
+        </div>
+        <div class="metric-item">
+            <div class="metric-name">SP_LM_STORE_INSTRUCTIONS</div>
+            <div class="metric-desc">Number of Store instructions to Local Memory</div>
+        </div>
+        <div class="metric-item">
+            <div class="metric-name">SP_LM_ATOMICS</div>
+            <div class="metric-desc">Number of Atomic operations performed on Local Memory</div>
+        </div>
+        <div class="metric-item">
+            <div class="metric-name">SP_GM_LOAD_INSTRUCTIONS</div>
+            <div class="metric-desc">Number of Load instructions from Global Memory</div>
+        </div>
+        <div class="metric-item">
+            <div class="metric-name">SP_GM_STORE_INSTRUCTIONS</div>
+            <div class="metric-desc">Number of Store instructions to Global Memory</div>
+        </div>
+        <div class="metric-item">
+            <div class="metric-name">SP_GM_ATOMICS</div>
+            <div class="metric-desc">Number of Atomic operations performed on Global Memory</div>
+        </div>
+        <div class="metric-item">
+            <div class="metric-name">SP_STALL_CYCLES_VPC</div>
+            <div class="metric-desc">Cycles where SP is stalled waiting for the Vertex Parameter Cache (VPC)</div>
+        </div>
+        <div class="metric-item">
+            <div class="metric-name">SP_STALL_CYCLES_TP</div>
+            <div class="metric-desc">Cycles where SP is stalled waiting for the Texture Pipe (TP)</div>
+        </div>
+        <div class="metric-item">
+            <div class="metric-name">SP_STALL_CYCLES_UCHE</div>
+            <div class="metric-desc">Cycles where SP is stalled waiting for the Unified L2 Cache (UCHE)</div>
+        </div>
+        <div class="metric-item">
+            <div class="metric-name">SP_STALL_CYCLES_RB</div>
+            <div class="metric-desc">Cycles where SP is stalled waiting for the Render Backend (RB)</div>
+        </div>
+    </div>
+</div>
+
+<!-- EVENT_GROUP_TP -->
+<div class="accordion">
+    <div class="accordion-header">EVENT_GROUP_TP - Texture Pipe Event Group</div>
+    <div class="accordion-content">
+        <div class="metric-item">
+            <div class="metric-name">TP_BUSY_CYCLES</div>
+            <div class="metric-desc">Total cycles during which the Texture Pipe is performing processing tasks</div>
+        </div>
+        <div class="metric-item">
+            <div class="metric-name">TP_L1_CACHELINE_MISSES</div>
+            <div class="metric-desc">Level 1 Texture Cache line misses</div>
+        </div>
+        <div class="metric-item">
+            <div class="metric-name">TP_L1_CACHELINE_REQUESTS</div>
+            <div class="metric-desc">Total fetch requests issued to the Level 1 Texture Cache</div>
+        </div>
+        <div class="metric-item">
+            <div class="metric-name">TP_STALL_CYCLES_UCHE</div>
+            <div class="metric-desc">Cycles where the Texture Pipe is stalled waiting for data from UCHE (L2)</div>
+        </div>
+        <div class="metric-item">
+            <div class="metric-name">TP_LATENCY_CYCLES</div>
+            <div class="metric-desc">Accumulated cycles reflecting the latency of texture fetch operations</div>
+        </div>
+        <div class="metric-item">
+            <div class="metric-name">TP_STARVE_CYCLES_SP</div>
+            <div class="metric-desc">Cycles where the TP is idle/starving due to lack of input from the Shader Processor</div>
+        </div>
+        <div class="metric-item">
+            <div class="metric-name">TP_STARVE_CYCLES_UCHE</div>
+            <div class="metric-desc">Cycles where the TP is idle/starving waiting for memory responses from UCHE</div>
+        </div>
+        <div class="metric-item">
+            <div class="metric-name">TP_OUTPUT_PIXELS_POINT</div>
+            <div class="metric-desc">Number of pixels produced using Point (Nearest) filtering</div>
+        </div>
+        <div class="metric-item">
+            <div class="metric-name">TP_OUTPUT_PIXELS_BILINEA</div>
+            <div class="metric-desc">Number of pixels produced using Bilinear filtering</div>
+        </div>
+        <div class="metric-item">
+            <div class="metric-name">TP_OUTPUT_PIXELS_MIP</div>
+            <div class="metric-desc">Number of pixels produced using Mipmapped filtering</div>
+        </div>
+        <div class="metric-item">
+            <div class="metric-name">TP_OUTPUT_PIXELS_ANISO</div>
+            <div class="metric-desc">Number of pixels produced using Anisotropic filtering</div>
+        </div>
+        <div class="metric-item">
+            <div class="metric-name">TP_OUTPUT_PIXELS_ZERO_LOD</div>
+            <div class="metric-desc">Number of pixels produced with Level of Detail (LOD) zero</div>
+        </div>
+    </div>
+</div>
+
+<!-- EVENT_GROUP_CUSTOM -->
+<div class="accordion">
+    <div class="accordion-header">EVENT_GROUP_CUSTOM - Custom Derived Metrics Group</div>
+    <div class="accordion-content">
+        <div class="metric-item">
+            <div class="metric-name">GFLOPs</div>
+            <div class="metric-desc">Giga Floating Point Operations per second (Total throughput)</div>
+        </div>
+        <div class="metric-item">
+            <div class="metric-name">GBPs</div>
+            <div class="metric-desc">Giga Bytes per second (Memory bandwidth throughput)</div>
+        </div>
+        <div class="metric-item">
+            <div class="metric-name">GPUCycles</div>
+            <div class="metric-desc">Total GPU internal clock cycles elapsed during the task</div>
+        </div>
+        <div class="metric-item">
+            <div class="metric-name">ShaderComputeCycles</div>
+            <div class="metric-desc">Estimated cycles spent strictly on shader compute/ALU tasks</div>
+        </div>
+        <div class="metric-item">
+            <div class="metric-name">ShaderLoadStoreCycles</div>
+            <div class="metric-desc">Estimated cycles spent on memory Load/Store operations</div>
+        </div>
+        <div class="metric-item">
+            <div class="metric-name">ShaderTextureCycles</div>
+            <div class="metric-desc">Estimated cycles spent on texture mapping and sampling operations</div>
+        </div>
+        <div class="metric-item">
+            <div class="metric-name">AluUtil</div>
+            <div class="metric-desc">ALU Utilization percentage (Active compute relative to available capacity)</div>
+        </div>
+        <div class="metric-item">
+            <div class="metric-name">LoadStoreUtil</div>
+            <div class="metric-desc">Load/Store Unit utilization percentage</div>
+        </div>
+        <div class="metric-item">
+            <div class="metric-name">TextureUtil</div>
+            <div class="metric-desc">Texture Pipe utilization percentage</div>
+        </div>
+        <div class="metric-item">
+            <div class="metric-name">FullAluRatio</div>
+            <div class="metric-desc">Ratio of full-precision (32-bit) ALU instructions vs total ALU instructions</div>
+        </div>
+        <div class="metric-item">
+            <div class="metric-name">ShaderBusyRatio</div>
+            <div class="metric-desc">Percentage of time the shader cores are actively executing</div>
+        </div>
+        <div class="metric-item">
+            <div class="metric-name">ShaderStalledRatio</div>
+            <div class="metric-desc">Percentage of time shader cores are stalled waiting for resources</div>
+        </div>
+        <div class="metric-item">
+            <div class="metric-name">TexturePipesBusyRatio</div>
+            <div class="metric-desc">Percentage of time the texture units are active</div>
+        </div>
+        <div class="metric-item">
+            <div class="metric-name">TextureL1MissRatio</div>
+            <div class="metric-desc">Miss rate of the Level 1 Texture Cache</div>
+        </div>
+        <div class="metric-item">
+            <div class="metric-name">TextureL2ReadMissRatio</div>
+            <div class="metric-desc">Miss rate of the L2 Cache (UCHE) specifically for texture read requests</div>
+        </div>
+        <div class="metric-item">
+            <div class="metric-name">L2ReadMissRatio</div>
+            <div class="metric-desc">General L2 Cache (UCHE) read miss rate</div>
+        </div>
+        <div class="metric-item">
+            <div class="metric-name">InstructionCacheMissRatio</div>
+            <div class="metric-desc">Overall Instruction Cache miss rate for the GPU cores</div>
+        </div>
+        <div class="metric-item">
+            <div class="metric-name">L1TextureMissPerPixel</div>
+            <div class="metric-desc">Average number of L1 texture cache misses per processed pixel</div>
+        </div>
+    </div>
 </div>
 
 <!--- ***************************************************************************************************************** -->
