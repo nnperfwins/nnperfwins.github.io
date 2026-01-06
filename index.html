@@ -78,6 +78,42 @@
             color: #6c757d;
             word-break: break-word;
         }
+        
+        .figfootnote {
+            font-size: 13px;
+            color: #555;
+            line-height: 1.6;
+            margin: 10px auto 25px auto;
+            width: 92%;
+            text-align: left;
+            background-color: #fafafa;
+            padding: 12px 15px;
+            border-radius: 6px;
+            border-left: 4px solid #dee2e6;
+        }
+
+        .legend-section {
+            margin-top: 10px;
+            padding-top: 10px;
+            border-top: 1px dashed #d1d5db;
+        }
+
+        .legend-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px 20px;
+            margin-bottom: 6px;
+        }
+
+        .legend-item {
+            white-space: nowrap;
+        }
+
+        .legend-item b {
+            color: #333;
+            font-weight: 600;
+            margin-right: 4px;
+        }
       </style>
 <head>
     <meta charset="UTF-8">
@@ -278,50 +314,70 @@ Esrgan
 
 <!--- **************************************************************************************************************** -->
 
-<h2 id="support_for_llm">Support for LLM</h2>
-<p>We also support profiling LLM, such as GPT, BERT.
-</p>
-<div style="position: relative; width: 780px; height: 480px;">
-    <video
-    poster=""
-    id="profile-GPT2"
-    autoplay
-    controls
-    muted
-    loop
-    height="100%"
-    width="780"
-    style="position: absolute; left: 0; top: 0;"
-    >
-        <source src="video/profile-GPT2.mp4"
-                type="video/mp4">
-    </video>
-    <div style="position: absolute; left: 0; top: 50px; text-align: left;">
-        <span>
-          latency (ns)
-        </span>
-      </div>
-      <div style="position: absolute; right: 0; bottom: 0; width: 840px; text-align: right;">
-        <span>Inference Time (s)</span>
-      </div>
-    </div>
-<div class="figcontain">
-    <img width="750" src="img/gpt-2.png" alt="Channel state information for four 1x1 links">
-    <div class="figcaption">Example of GPT-2</div>
-</div>
-<div class="figcontain">
-    <img width="750" src="img/mobilebert.png" alt="Channel state information for four 1x1 links">
-    <div class="figcaption">Example of MobileBERT</div>
-</div>
+    <h2 id="support_for_llm">Support for LLM</h2>
+    <p>We also support profiling LLM, such as GPT, BERT.</p>
 
-<div class="figcontain">
-    <img width="750" src="img/kernel-level.png" alt="Kernel-level GPU stall ratios">
-    <div class="figcaption">Kernel-level GPU stall ratios</div>
-</div>
-<div class="figcontain">
-    <img width="750" src="img/token-level.png" alt="Token-level GPU stall ratios">
-    <div class="figcaption">Token-level GPU stall ratios</div>
-</div>
+    <div style="position: relative; width: 780px; height: 480px;">
+        <video
+            poster=""
+            id="profile-GPT2"
+            autoplay
+            controls
+            muted
+            loop
+            height="100%"
+            width="780"
+            style="position: absolute; left: 0; top: 0;"
+        >
+            <source src="video/profile-GPT2.mp4" type="video/mp4">
+        </video>
+        <div style="position: absolute; left: 0; top: 50px; text-align: left;">
+            <span>latency (ns)</span>
+        </div>
+        <div style="position: absolute; right: 0; bottom: 0; width: 840px; text-align: right;">
+            <span>Inference Time (s)</span>
+        </div>
+    </div>
+    <div class="figcontain">
+        <img width="750" src="img/kernel-level.png" alt="Kernel-level GPU stall ratios">
+        <div class="figcaption">Kernel-level GPU stall ratios</div>
+    </div>
+    <div class="figcontain">
+        <img width="750" src="img/token-level.png" alt="Token-level GPU stall ratios">
+        <div class="figcaption">Token-level GPU stall ratios</div>
+    </div>
+    <div class="figfootnote">
+        <div style="margin-bottom: 8px;">(a) Kernel-level GPU stall ratios during a single token generation on five mobile devices with different computation capacities.</div>
+        <div style="margin-bottom: 8px;">(b) Token-level GPU stall ratios across multiple tokens, grouped by five mobile devices.</div>
+        <div style="margin-bottom: 8px;">Device 𝐷1 and 𝐷2 exclude model 𝑀5 due to their inadequate computation capacity.</div>
+        <div class="legend-section">
+            <div class="legend-row">
+                <div class="legend-item"><b>𝐷1:</b> OnePlus 8</div>
+                <div class="legend-item"><b>𝐷2:</b> Samsung Note10</div>
+                <div class="legend-item"><b>𝐷3:</b> OnePlus 9RT</div>
+                <div class="legend-item"><b>𝐷4:</b> OnePlus Ace Pro</div>
+                <div class="legend-item"><b>𝐷5:</b> Xiaomi 14Pro</div>
+            </div>
+            <div class="legend-row">
+                <div class="legend-item"><b>𝑀1:</b> Qwen2.5 0.5B</div>
+                <div class="legend-item"><b>𝑀2:</b> Qwen2.5 1.5B</div>
+                <div class="legend-item"><b>𝑀3:</b> Gemma2 2B</div>
+                <div class="legend-item"><b>𝑀4:</b> RedPajama 3B</div>
+                <div class="legend-item"><b>𝑀5:</b> Mistral 7B</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="figcontain">
+        <img width="750" src="img/gpt-2.png" alt="Channel state information for four 1x1 links">
+        <div class="figcaption">Example of GPT-2</div>
+    </div>
+
+    <div class="figcontain">
+        <img width="750" src="img/mobilebert.png" alt="Channel state information for four 1x1 links">
+        <div class="figcaption">Example of MobileBERT</div>
+    </div>
+
 
 <!--- ***************************************************************************************************************** -->
 
@@ -595,7 +651,7 @@ Esrgan
     <center>
         <h4>Authors: <a href="">Haolin Chu</a> | <a href="https://xiaolongbupt.github.io/">Xiaolong Zheng</a> | <a href="">Liang Liu</a> | <a
                 href="">Huadong Ma</a><br>
-            Maintainers: <a href="">Haolin Chu</a> | <a href="">Haiteng Xin</a> | <a href="">Boyan Lu</a></h4>
+            Maintainers: <a href="">Haolin Chu</a> | <a href="">Haiteng Xin</a> | <a href="">Boyan Lu</a> | <a href="">Zixu Wang</a></h4>
         <tr><td colspan="4" align="center" valign="top">
             <a href="https://clustrmaps.com/site/1bx4g"  title="Visit tracker"><img src="//www.clustrmaps.com/map_v2.png?d=kw2vNXowjuenY8AiOw_K4KhnjThMUb2IegDOwVfoe7Y&cl=ffffff" /></a>
         </td></tr>
