@@ -315,9 +315,9 @@ Esrgan
 <!--- **************************************************************************************************************** -->
 
     <h2 id="support_for_llm">Support for LLM</h2>
-    <p>We also support profiling LLM, such as GPT, BERT.</p>
+    <p>We also support profiling LLM, such as GPT, BERT, Qwen, Gemma, RedPajama, Mistral.</p>
 
-    <div style="position: relative; width: 780px; height: 480px;">
+    <div style="position: relative; width: 780px; height: 480px; margin-bottom: 20px;">
         <video
             poster=""
             id="profile-GPT2"
@@ -331,10 +331,10 @@ Esrgan
         >
             <source src="video/profile-GPT2.mp4" type="video/mp4">
         </video>
-        <div style="position: absolute; left: 0; top: 50px; text-align: left;">
+        <div style="position: absolute; left: 0; top: 40px; text-align: left;">
             <span>latency (ns)</span>
         </div>
-        <div style="position: absolute; right: 0; bottom: 0; width: 840px; text-align: right;">
+        <div style="position: absolute; right: 0; bottom: -20px; width: 840px; text-align: right;">
             <span>Inference Time (s)</span>
         </div>
     </div>
@@ -347,8 +347,8 @@ Esrgan
         <div class="figcaption">Token-level GPU stall ratios</div>
     </div>
     <div class="figfootnote">
-        <div style="margin-bottom: 8px;">(a) Kernel-level GPU stall ratios during a single token generation on five mobile devices with different computation capacities.</div>
-        <div style="margin-bottom: 8px;">(b) Token-level GPU stall ratios across multiple tokens, grouped by five mobile devices.</div>
+        <div style="margin-bottom: 8px;"><b>Kernel-level GPU stall ratios</b> during a single token generation on five mobile devices with different computation capacities.</div>
+        <div style="margin-bottom: 8px;"><b>Token-level GPU stall ratios</b> across multiple tokens, grouped by five mobile devices.</div>
         <div style="margin-bottom: 8px;">Device 𝐷1 and 𝐷2 exclude model 𝑀5 due to their inadequate computation capacity.</div>
         <div class="legend-section">
             <div class="legend-row">
